@@ -3,6 +3,7 @@ package bitshift.studios.flightsapp.application.di
 import android.app.Application
 import androidx.room.Room
 import bitshift.studios.flightsapp.data.db.airport.AirportDatabase
+import bitshift.studios.flightsapp.data.db.bookmarked.BookmarkedAirportsDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,6 +23,19 @@ object AppModule {
 				AirportDatabase.databaseName
 			)
 			.createFromAsset("database/flight_search.db")
+			.fallbackToDestructiveMigration()
+			.build()
+	}
+
+	@Provides
+	@Singleton
+	fun providesBookmarkedAirportsDatabase(app: Application): BookmarkedAirportsDatabase {
+		return Room
+			.databaseBuilder(
+				app.applicationContext,
+				BookmarkedAirportsDatabase::class.java,
+				BookmarkedAirportsDatabase.databaseName
+			)
 			.fallbackToDestructiveMigration()
 			.build()
 	}
