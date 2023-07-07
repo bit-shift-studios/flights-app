@@ -20,5 +20,5 @@ interface AirportDao {
 			SELECT * FROM airport WHERE iata_code = :code
 		"""
 	)
-	fun getFlightByCode(code: String): Flow<AirportEntity>
+	fun getFlightsFromAirportByCode(code: String): Flow<List<AirportEntity>>
 }
