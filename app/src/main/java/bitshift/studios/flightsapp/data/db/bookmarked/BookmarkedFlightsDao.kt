@@ -5,12 +5,11 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import bitshift.studios.flightsapp.data.db.airport.entities.AirportEntity
 import bitshift.studios.flightsapp.data.db.bookmarked.entities.BookmarkedAirportEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
-interface BookmarkedAirportDao {
+interface BookmarkedFlightsDao {
 	@Query(
 		"""
 			SELECT * FROM bookmarked_airports
