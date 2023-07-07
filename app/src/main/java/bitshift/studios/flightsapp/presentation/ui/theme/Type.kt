@@ -1,4 +1,4 @@
-package bitshift.studios.flightsapp.ui.theme
+package bitshift.studios.flightsapp.presentation.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

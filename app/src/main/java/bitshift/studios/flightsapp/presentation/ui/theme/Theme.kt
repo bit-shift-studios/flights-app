@@ -1,4 +1,4 @@
-package bitshift.studios.flightsapp.ui.theme
+package bitshift.studios.flightsapp.presentation.ui.theme
 
 import android.app.Activity
 import android.os.Build
