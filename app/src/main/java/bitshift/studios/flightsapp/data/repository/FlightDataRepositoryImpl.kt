@@ -4,8 +4,9 @@ import bitshift.studios.flightsapp.data.db.airport.AirportDao
 import bitshift.studios.flightsapp.data.db.airport.entities.AirportEntity
 import bitshift.studios.flightsapp.domain.repository.FlightDataRepository
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
 
-class FlightDataRepositoryImpl(private val airportDao: AirportDao) : FlightDataRepository {
+class FlightDataRepositoryImpl @Inject constructor (private val airportDao: AirportDao) : FlightDataRepository {
 	override fun getFlightByNameOrCode(identifier: String): Flow<List<AirportEntity>> {
 		return airportDao.getFlightByNameOrCode(identifier)
 	}
