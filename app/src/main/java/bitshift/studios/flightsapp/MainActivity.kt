@@ -10,7 +10,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
-import bitshift.studios.flightsapp.ui.theme.FlightsAppTheme
+import bitshift.studios.flightsapp.presentation.ui.theme.FlightsAppTheme
 
 class MainActivity : ComponentActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
