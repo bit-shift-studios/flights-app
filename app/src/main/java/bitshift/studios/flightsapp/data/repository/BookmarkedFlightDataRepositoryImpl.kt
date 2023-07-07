@@ -1,0 +1,26 @@
+package bitshift.studios.flightsapp.data.repository
+
+import bitshift.studios.flightsapp.data.db.bookmarked.BookmarkedAirportDao
+import bitshift.studios.flightsapp.data.db.bookmarked.entities.BookmarkedAirportEntity
+import bitshift.studios.flightsapp.domain.repository.BookmarkedFlightsDataRepository
+import kotlinx.coroutines.flow.Flow
+
+class BookmarkedFlightDataRepositoryImpl(
+	private val bookmarkedFlightsDao: BookmarkedAirportDao
+) : BookmarkedFlightsDataRepository {
+	override fun getBookmarkedAirports(): Flow<List<BookmarkedAirportEntity>> {
+		return bookmarkedFlightsDao.getBookmarkedAirports()
+	}
+
+	override suspend fun isAirportBookmarked(code: String): Boolean {
+		return bookmarkedFlightsDao.isAirportBookmarked(code)
+	}
+
+	override suspend fun addAirportToBookmarks(airport: BookmarkedAirportEntity) {
+		return bookmarkedFlightsDao.addAirportToBookmarks(airport)
+	}
+
+	override suspend fun removeAirportFromBookmarks(airport: BookmarkedAirportEntity) {
+		return bookmarkedFlightsDao.removeAirportFromBookmarks(airport)
+	}
+}

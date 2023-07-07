@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface BookmarkedFlightsDataRepository {
 	fun getBookmarkedAirports(): Flow<List<BookmarkedAirportEntity>>
-	suspend fun isAirportBookmarked(): Boolean
+	suspend fun isAirportBookmarked(code: String): Boolean
 	suspend fun addAirportToBookmarks(airport: BookmarkedAirportEntity)
 	suspend fun removeAirportFromBookmarks(airport: BookmarkedAirportEntity)
 }
