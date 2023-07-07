@@ -16,7 +16,7 @@ interface BookmarkedAirportDao {
 			SELECT * FROM bookmarked_airports
 		"""
 	)
-	fun getBookmarkedAirports(): Flow<BookmarkedAirportEntity>
+	fun getBookmarkedAirports(): Flow<List<BookmarkedAirportEntity>>
 
 	@Query(
 		"""
