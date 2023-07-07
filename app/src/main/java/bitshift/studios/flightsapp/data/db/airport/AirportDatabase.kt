@@ -11,4 +11,8 @@ import bitshift.studios.flightsapp.data.db.airport.entities.AirportEntity
 )
 abstract class AirportDatabase : RoomDatabase() {
 	abstract fun dao(): AirportDao
+
+	companion object {
+		val databaseName = "airport_db"
+	}
 }
