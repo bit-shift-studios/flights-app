@@ -2,7 +2,7 @@ package bitshift.studios.flightsapp.data.db.airport
 
 import androidx.room.Dao
 import androidx.room.Query
-import bitshift.studios.flightsapp.data.db.airport.entity.AirportEntity
+import bitshift.studios.flightsapp.data.db.airport.entities.AirportEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao

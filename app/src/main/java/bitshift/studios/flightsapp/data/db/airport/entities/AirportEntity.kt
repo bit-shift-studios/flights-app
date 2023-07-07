@@ -1,4 +1,4 @@
-package bitshift.studios.flightsapp.data.db.airport.entity
+package bitshift.studios.flightsapp.data.db.airport.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
