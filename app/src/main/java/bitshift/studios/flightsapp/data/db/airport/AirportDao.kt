@@ -21,4 +21,11 @@ interface AirportDao {
 		"""
 	)
 	fun getFlightsFromAirportByCode(code: String): Flow<List<AirportEntity>>
+
+	@Query(
+		"""
+			SELECT name FROM airport WHERE iata_code = :code
+		"""
+	)
+	suspend fun getAirportNameByCode(code: String): String
 }
