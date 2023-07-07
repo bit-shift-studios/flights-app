@@ -3,7 +3,9 @@ package bitshift.studios.flightsapp.application.di
 import android.app.Application
 import androidx.room.Room
 import bitshift.studios.flightsapp.data.db.airport.AirportDatabase
-import bitshift.studios.flightsapp.data.db.bookmarked.BookmarkedAirportsDatabase
+import bitshift.studios.flightsapp.data.db.bookmarked.BookmarkedFlightsDatabase
+import bitshift.studios.flightsapp.data.repository.BookmarkedFlightDataRepositoryImpl
+import bitshift.studios.flightsapp.data.repository.FlightDataRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,14 +31,26 @@ object AppModule {
 
 	@Provides
 	@Singleton
-	fun providesBookmarkedAirportsDatabase(app: Application): BookmarkedAirportsDatabase {
+	fun providesBookmarkedFlightsDatabase(app: Application): BookmarkedFlightsDatabase {
 		return Room
 			.databaseBuilder(
 				app.applicationContext,
-				BookmarkedAirportsDatabase::class.java,
-				BookmarkedAirportsDatabase.databaseName
+				BookmarkedFlightsDatabase::class.java,
+				BookmarkedFlightsDatabase.databaseName
 			)
 			.fallbackToDestructiveMigration()
 			.build()
+	}
+
+	@Provides
+	@Singleton
+	fun providesFlightDataRepository(db: AirportDatabase): FlightDataRepositoryImpl {
+		return FlightDataRepositoryImpl(db.dao())
+	}
+
+	@Provides
+	@Singleton
+	fun providesBookmarkedFlightDataRepository(db: BookmarkedFlightsDatabase): BookmarkedFlightDataRepositoryImpl {
+		return BookmarkedFlightDataRepositoryImpl(db.dao())
 	}
 }

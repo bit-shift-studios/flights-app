@@ -9,8 +9,8 @@ import bitshift.studios.flightsapp.data.db.bookmarked.entities.BookmarkedAirport
 	exportSchema = false,
 	version = 1
 )
-abstract class BookmarkedAirportsDatabase : RoomDatabase() {
-	abstract fun dao(): BookmarkedAirportDao
+abstract class BookmarkedFlightsDatabase : RoomDatabase() {
+	abstract fun dao(): BookmarkedFlightsDao
 
 	companion object {
 		val databaseName = "bookmarked_db"
