@@ -23,7 +23,9 @@ import bitshift.studios.flightsapp.presentation.ui.theme.Neutral050
 @Composable
 fun SearchBar(
 	modifier: Modifier = Modifier,
-	isDarkTheme: Boolean
+	isDarkTheme: Boolean,
+	searchQuery: String,
+	onSearchQueryChange: (String) -> Unit
 ) {
 	val containerColor = when(isDarkTheme) {
 		true -> Main250
@@ -31,8 +33,8 @@ fun SearchBar(
 	}
 
 	OutlinedTextField(
-		value = "",
-		onValueChange = {},
+		value = searchQuery,
+		onValueChange = onSearchQueryChange,
 		singleLine = true,
 		textStyle = MaterialTheme.typography.bodyLarge,
 		leadingIcon = {
@@ -68,7 +70,11 @@ fun SearchBar(
 @Composable
 fun SearchBarLightPreview() {
 	FlightsAppTheme {
-		SearchBar(isDarkTheme = false)
+		SearchBar(
+			isDarkTheme = false,
+			searchQuery = "",
+			onSearchQueryChange = {  }
+		)
 	}
 }
 
@@ -79,6 +85,10 @@ fun SearchBarLightPreview() {
 @Composable
 fun SearchBarDarkPreview() {
 	FlightsAppTheme {
-		SearchBar(isDarkTheme = true)
+		SearchBar(
+			isDarkTheme = true,
+			searchQuery = "",
+			onSearchQueryChange = {  }
+		)
 	}
 }

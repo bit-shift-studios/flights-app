@@ -21,7 +21,11 @@ fun HomeScreen(
 
 	Scaffold(
 		topBar = {
-			SearchBar(isDarkTheme = isDarkTheme)
+			SearchBar(
+				isDarkTheme = isDarkTheme,
+				searchQuery = uiState.searchQuery,
+				onSearchQueryChange = { viewModel.updateSearchQuery(it) }
+			)
 		},
 	) { padding ->
 		Column(modifier = modifier
