@@ -6,13 +6,14 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
-
-data class HomeScreenUIState(
-	val searchQuery: String = ""
-)
+import javax.inject.Inject
 
 @HiltViewModel
-class HomeScreenViewModel : ViewModel() {
+class HomeScreenViewModel @Inject constructor() : ViewModel() {
+	data class HomeScreenUIState(
+		val searchQuery: String = ""
+	)
+
 	private val _homeScreenUIState: MutableStateFlow<HomeScreenUIState> = MutableStateFlow(HomeScreenUIState())
 	val uiState: StateFlow<HomeScreenUIState> = _homeScreenUIState.asStateFlow()
 
