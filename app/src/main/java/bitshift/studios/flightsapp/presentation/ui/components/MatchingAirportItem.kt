@@ -23,6 +23,7 @@ import bitshift.studios.flightsapp.R
 import bitshift.studios.flightsapp.data.db.airport.entities.AirportEntity
 import bitshift.studios.flightsapp.presentation.ui.theme.Main050
 import bitshift.studios.flightsapp.presentation.ui.theme.Main100
+import bitshift.studios.flightsapp.presentation.ui.theme.Main250
 import bitshift.studios.flightsapp.presentation.ui.theme.SFProDisplay
 import java.util.Locale
 
@@ -30,7 +31,8 @@ import java.util.Locale
 fun MatchingAirportItem(
 	modifier: Modifier = Modifier,
 	airport: AirportEntity,
-	searchQuery: String
+	searchQuery: String,
+	isDarkTheme: Boolean
 ) {
 	Row(
 		verticalAlignment = Alignment.Top,
@@ -76,7 +78,7 @@ fun MatchingAirportItem(
 
 			Text(
 				text = airportName,
-				color = Main050,
+				color = if (isDarkTheme) Main050 else Main250,
 			)
 		}
 

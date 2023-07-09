@@ -20,6 +20,7 @@ import bitshift.studios.flightsapp.R
 import bitshift.studios.flightsapp.presentation.ui.components.MatchingAirportItem
 import bitshift.studios.flightsapp.presentation.ui.components.SearchBar
 import bitshift.studios.flightsapp.presentation.ui.theme.Main050
+import bitshift.studios.flightsapp.presentation.ui.theme.Main300
 import kotlinx.coroutines.launch
 
 @Composable
@@ -54,7 +55,7 @@ fun HomeScreen(
 				Text(
 					text = stringResource(id = R.string.matches),
 					style = MaterialTheme.typography.labelLarge,
-					color = Main050,
+					color = if (isDarkTheme) Main050 else Main300,
 					modifier = Modifier
 						.padding(vertical = 8.dp)
 				)
@@ -63,7 +64,8 @@ fun HomeScreen(
 			items(items = searchResults) { airport ->
 				MatchingAirportItem(
 					airport = airport,
-					searchQuery = uiState.searchQuery
+					searchQuery = uiState.searchQuery,
+					isDarkTheme = isDarkTheme
 				)
 			}
 		}
