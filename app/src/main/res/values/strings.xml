@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Flights</string>
+
+    <string name="description_search">search</string>
+    <string name="description_checkout">checkout</string>
+
+    <string name="matches">MATCHED</string>
+    <string name="arrives_at">ARRIVES AT</string>
+    <string name="departs_from">DEPARTS FROM</string>
+    <string name="flights_from">FLIGHTS FROM</string>
 </resources>
