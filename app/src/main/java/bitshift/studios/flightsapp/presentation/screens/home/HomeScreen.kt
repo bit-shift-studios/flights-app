@@ -1,11 +1,12 @@
 package bitshift.studios.flightsapp.presentation.screens.home
 
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -14,6 +15,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import bitshift.studios.flightsapp.presentation.ui.components.MatchingAirportItem
 import bitshift.studios.flightsapp.presentation.ui.components.SearchBar
 import kotlinx.coroutines.launch
 
@@ -38,19 +40,27 @@ fun HomeScreen(
 			)
 		},
 	) { padding ->
-		Column(modifier = modifier
-			.padding(padding)
-			.padding(horizontal = 16.dp)) {
-			Text(text = "Home Screen")
-		}
-
 		LazyColumn(
-			modifier = Modifier
+			modifier = modifier
 				.fillMaxWidth()
-				.padding(horizontal = 16.dp)
+				.padding(padding)
+				.padding(horizontal = 16.dp),
+			verticalArrangement = Arrangement.spacedBy(24.dp)
 		) {
+			item {
+				Text(
+					text = "MATCHES",
+					style = MaterialTheme.typography.labelLarge,
+					modifier = Modifier
+						.padding(vertical = 16.dp)
+				)
+			}
+
 			items(items = searchResults) { airport ->
-				Text(text = airport.name)
+				MatchingAirportItem(
+					airport = airport,
+					searchQuery = uiState.searchQuery
+				)
 			}
 		}
 	}

@@ -29,6 +29,22 @@ val Typography = Typography(
 		letterSpacing = 0.5.sp
 	),
 
+	labelMedium = TextStyle(
+		fontFamily = SFProDisplay,
+		fontWeight = FontWeight.Bold,
+		fontSize = 16.sp,
+		lineHeight = 24.sp,
+		letterSpacing = 0.5.sp
+	),
+
+	labelLarge = TextStyle(
+		fontFamily = SFProDisplay,
+		fontWeight = FontWeight.Bold,
+		fontSize = 18.sp,
+		lineHeight = 24.sp,
+		letterSpacing = 0.5.sp
+	),
+
 	bodyMedium = TextStyle(
 		fontFamily = SFProDisplay,
 		fontWeight = FontWeight.Normal,
