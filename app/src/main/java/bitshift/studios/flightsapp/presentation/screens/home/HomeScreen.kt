@@ -2,6 +2,7 @@ package bitshift.studios.flightsapp.presentation.screens.home
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -44,29 +45,33 @@ fun HomeScreen(
 			)
 		},
 	) { padding ->
-		LazyColumn(
+		Box(
 			modifier = modifier
 				.fillMaxWidth()
 				.padding(padding)
-				.padding(horizontal = 16.dp),
-			verticalArrangement = Arrangement.spacedBy(24.dp)
+				.padding(horizontal = 16.dp)
 		) {
-			item {
-				Text(
-					text = stringResource(id = R.string.matches),
-					style = MaterialTheme.typography.labelLarge,
-					color = if (isDarkTheme) Main050 else Main300,
-					modifier = Modifier
-						.padding(vertical = 8.dp)
-				)
-			}
+			Text(
+				text = stringResource(id = R.string.matches),
+				style = MaterialTheme.typography.labelLarge,
+				color = if (isDarkTheme) Main050 else Main300,
+				modifier = Modifier
+					.padding(vertical = 8.dp)
+			)
 
-			items(items = searchResults) { airport ->
-				MatchingAirportItem(
-					airport = airport,
-					searchQuery = uiState.searchQuery,
-					isDarkTheme = isDarkTheme
-				)
+			LazyColumn(
+				modifier = modifier
+					.fillMaxWidth()
+					.padding(top = 56.dp),
+				verticalArrangement = Arrangement.spacedBy(24.dp)
+			) {
+				items(items = searchResults) { airport ->
+					MatchingAirportItem(
+						airport = airport,
+						searchQuery = uiState.searchQuery,
+						isDarkTheme = isDarkTheme
+					)
+				}
 			}
 		}
 	}
