@@ -12,14 +12,14 @@ import kotlinx.coroutines.flow.Flow
 interface BookmarkedFlightsDao {
 	@Query(
 		"""
-			SELECT * FROM bookmarked_airports
+			SELECT * FROM bookmarked
 		"""
 	)
 	fun getBookmarkedAirports(): Flow<List<BookmarkedAirportEntity>>
 
 	@Query(
 		"""
-			SELECT EXISTS (SELECT 1 FROM bookmarked_airports WHERE departureCode = :code LIMIT 1)
+			SELECT EXISTS (SELECT 1 FROM bookmarked WHERE departure_code = :code LIMIT 1)
 		"""
 	)
 	suspend fun isAirportBookmarked(code: String): Boolean

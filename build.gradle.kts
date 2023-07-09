@@ -8,7 +8,7 @@ buildscript {
         set("datastore_version", "1.0.0")
         set("viewmodel_compose_version", "2.6.1")
         set("navigation_compose_version", "2.6.0")
-        set("navigation_compose_version", "1.0.0")
+        set("hilt_navigation_compose_version", "1.0.0")
     }
 }
 

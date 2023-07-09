@@ -10,6 +10,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import bitshift.studios.flightsapp.application.navigation.NavGraph
 import bitshift.studios.flightsapp.presentation.ui.theme.FlightsAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,29 +21,9 @@ class MainActivity : ComponentActivity() {
 		super.onCreate(savedInstanceState)
 		setContent {
 			FlightsAppTheme {
-				Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-					Greeting("Flight App")
-				}
+				val navHostController = rememberNavController()
+				NavGraph(navHostController)
 			}
 		}
-	}
-}
-
-@Composable
-fun Greeting(text: String, modifier: Modifier = Modifier) {
-	val typography = MaterialTheme.typography
-
-	Text(
-		text = text,
-		modifier = modifier,
-		style = typography.bodyMedium
-	)
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-	FlightsAppTheme {
-		Greeting("Android")
 	}
 }
