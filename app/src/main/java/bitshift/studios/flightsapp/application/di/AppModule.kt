@@ -3,7 +3,7 @@ package bitshift.studios.flightsapp.application.di
 import android.app.Application
 import androidx.room.Room
 import bitshift.studios.flightsapp.data.db.AppDatabase
-import bitshift.studios.flightsapp.data.repository.BookmarkedFlightDataRepositoryImpl
+import bitshift.studios.flightsapp.data.repository.BookmarkedFlightsDataRepositoryImpl
 import bitshift.studios.flightsapp.data.repository.FlightDataRepositoryImpl
 import bitshift.studios.flightsapp.domain.repository.FlightDataRepository
 import dagger.Module
@@ -37,7 +37,7 @@ object AppModule {
 
 	@Provides
 	@Singleton
-	fun providesBookmarkedFlightDataRepository(db: AppDatabase): BookmarkedFlightDataRepositoryImpl {
-		return BookmarkedFlightDataRepositoryImpl(db.bookmarkedFlightsDao())
+	fun providesBookmarkedFlightsDataRepository(db: AppDatabase): BookmarkedFlightsDataRepositoryImpl {
+		return BookmarkedFlightsDataRepositoryImpl(db.bookmarkedFlightsDao())
 	}
 }

@@ -6,7 +6,7 @@ import bitshift.studios.flightsapp.domain.repository.BookmarkedFlightsDataReposi
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-class BookmarkedFlightDataRepositoryImpl @Inject constructor (
+class BookmarkedFlightsDataRepositoryImpl @Inject constructor (
 	private val bookmarkedFlightsDao: BookmarkedFlightsDao
 ) : BookmarkedFlightsDataRepository {
 	override fun getBookmarkedAirports(): Flow<List<BookmarkedAirportEntity>> {
