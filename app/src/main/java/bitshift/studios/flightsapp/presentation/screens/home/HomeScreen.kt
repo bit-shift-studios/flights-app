@@ -14,9 +14,12 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import bitshift.studios.flightsapp.R
 import bitshift.studios.flightsapp.presentation.ui.components.MatchingAirportItem
 import bitshift.studios.flightsapp.presentation.ui.components.SearchBar
+import bitshift.studios.flightsapp.presentation.ui.theme.Main050
 import kotlinx.coroutines.launch
 
 @Composable
@@ -49,10 +52,11 @@ fun HomeScreen(
 		) {
 			item {
 				Text(
-					text = "MATCHES",
+					text = stringResource(id = R.string.matches),
 					style = MaterialTheme.typography.labelLarge,
+					color = Main050,
 					modifier = Modifier
-						.padding(vertical = 16.dp)
+						.padding(vertical = 8.dp)
 				)
 			}
 

@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -81,10 +82,10 @@ fun MatchingAirportItem(
 
 		Icon(
 			painter = painterResource(R.drawable.icon_arrow_right),
-			contentDescription = "checkout",
+			contentDescription = stringResource(id = R.string.description_checkout),
 			tint = Main100,
 			modifier = Modifier
-				.padding(start = 1.dp)
+				.padding(start = 16.dp)
 				.width(40.dp)
 				.border(1.dp, Main100, RoundedCornerShape(8.dp))
 		)
