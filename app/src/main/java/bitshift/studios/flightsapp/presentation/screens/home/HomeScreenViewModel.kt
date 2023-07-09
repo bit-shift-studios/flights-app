@@ -1,5 +1,6 @@
 package bitshift.studios.flightsapp.presentation.screens.home
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import bitshift.studios.flightsapp.domain.repository.FlightDataRepository
@@ -27,17 +28,21 @@ class HomeScreenViewModel @Inject constructor(
 	private val _homeScreenUIState: MutableStateFlow<HomeScreenUIState> = MutableStateFlow(HomeScreenUIState())
 	val uiState: StateFlow<HomeScreenUIState> = _homeScreenUIState.asStateFlow()
 
-//	init {
-//		viewModelScope.launch {
-//			try {
-//				val test = withContext(Dispatchers.IO) {
-//					flightDataRepository.getAirportByCode("DUB")
-//				}
-//			} catch (ioe: IOException) {
-//				error(ioe)
-//			}
-//		}
-//	}
+	init {
+		viewModelScope.launch {
+			try {
+				val test = withContext(Dispatchers.IO) {
+					flightDataRepository.getAirportByCode("DUB")
+				}
+
+				test?.let {
+					Log.d(TAG, it.name)
+				}
+			} catch (ioe: IOException) {
+				error(ioe)
+			}
+		}
+	}
 
 	fun updateSearchQuery(newQuery: String) {
 		_homeScreenUIState.update { state ->

@@ -19,7 +19,7 @@ interface BookmarkedFlightsDao {
 
 	@Query(
 		"""
-			SELECT EXISTS (SELECT 1 FROM bookmarked WHERE departureCode = :code LIMIT 1)
+			SELECT EXISTS (SELECT 1 FROM bookmarked WHERE departure_code = :code LIMIT 1)
 		"""
 	)
 	suspend fun isAirportBookmarked(code: String): Boolean
