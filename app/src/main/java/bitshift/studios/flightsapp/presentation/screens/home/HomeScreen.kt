@@ -2,14 +2,20 @@ package bitshift.studios.flightsapp.presentation.screens.home
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import bitshift.studios.flightsapp.presentation.ui.components.SearchBar
+import kotlinx.coroutines.launch
 
 @Composable
 fun HomeScreen(
@@ -17,6 +23,8 @@ fun HomeScreen(
 	viewModel: HomeScreenViewModel
 ) {
 	val uiState = viewModel.uiState.collectAsState().value
+	val searchResults by uiState.searchResults.collectAsState(emptyList())
+	val coroutineScope = rememberCoroutineScope()
 	val isDarkTheme = isSystemInDarkTheme()
 
 	Scaffold(
@@ -24,7 +32,9 @@ fun HomeScreen(
 			SearchBar(
 				isDarkTheme = isDarkTheme,
 				searchQuery = uiState.searchQuery,
-				onSearchQueryChange = { viewModel.updateSearchQuery(it) }
+				onSearchQueryChange = {
+					coroutineScope.launch { viewModel.updateSearchQuery(it) }
+				}
 			)
 		},
 	) { padding ->
@@ -32,6 +42,16 @@ fun HomeScreen(
 			.padding(padding)
 			.padding(horizontal = 16.dp)) {
 			Text(text = "Home Screen")
+		}
+
+		LazyColumn(
+			modifier = Modifier
+				.fillMaxWidth()
+				.padding(horizontal = 16.dp)
+		) {
+			items(items = searchResults) { airport ->
+				Text(text = airport.name)
+			}
 		}
 	}
 }

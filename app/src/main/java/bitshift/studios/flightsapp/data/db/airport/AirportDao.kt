@@ -9,7 +9,8 @@ import kotlinx.coroutines.flow.Flow
 interface AirportDao {
 	@Query(
 		"""
-			SELECT * FROM airport WHERE (name LIKE :identifier OR iata_code LIKE :identifier)
+			SELECT * FROM airport WHERE LOWER(name) LIKE '%' || LOWER(:identifier) || '%' OR 
+			LOWER(iata_code) LIKE '%' || LOWER(:identifier) || '%'
 			ORDER BY passengers DESC
 		"""
 	)

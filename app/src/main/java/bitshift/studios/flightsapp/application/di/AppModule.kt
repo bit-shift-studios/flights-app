@@ -6,6 +6,8 @@ import bitshift.studios.flightsapp.data.db.AppDatabase
 import bitshift.studios.flightsapp.data.repository.BookmarkedFlightsDataRepositoryImpl
 import bitshift.studios.flightsapp.data.repository.FlightDataRepositoryImpl
 import bitshift.studios.flightsapp.domain.repository.FlightDataRepository
+import bitshift.studios.flightsapp.domain.usecases.AppUseCases
+import bitshift.studios.flightsapp.domain.usecases.GetAirportsMatching
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -39,5 +41,13 @@ object AppModule {
 	@Singleton
 	fun providesBookmarkedFlightsDataRepository(db: AppDatabase): BookmarkedFlightsDataRepositoryImpl {
 		return BookmarkedFlightsDataRepositoryImpl(db.bookmarkedFlightsDao())
+	}
+
+	@Provides
+	@Singleton
+	fun providesAppUseCases(flightDataRepository: FlightDataRepository): AppUseCases {
+		return AppUseCases(
+			GetAirportsMatching(flightDataRepository)
+		)
 	}
 }
