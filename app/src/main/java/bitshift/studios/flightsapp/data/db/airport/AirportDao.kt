@@ -13,19 +13,12 @@ interface AirportDao {
 			ORDER BY passengers DESC
 		"""
 	)
-	fun getFlightByNameOrCode(identifier: String): Flow<List<AirportEntity>>
+	fun getAirportByQuery(identifier: String): Flow<List<AirportEntity>>
 
 	@Query(
 		"""
 			SELECT * FROM airport WHERE iata_code = :code
 		"""
 	)
-	fun getFlightsFromAirportByCode(code: String): Flow<List<AirportEntity>>
-
-	@Query(
-		"""
-			SELECT name FROM airport WHERE iata_code = :code
-		"""
-	)
-	suspend fun getAirportNameByCode(code: String): String
+	suspend fun getAirportByCode(code: String): AirportEntity?
 }

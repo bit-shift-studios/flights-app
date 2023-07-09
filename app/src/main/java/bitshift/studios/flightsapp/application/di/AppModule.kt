@@ -2,10 +2,10 @@ package bitshift.studios.flightsapp.application.di
 
 import android.app.Application
 import androidx.room.Room
-import bitshift.studios.flightsapp.data.db.airport.AirportDatabase
-import bitshift.studios.flightsapp.data.db.bookmarked.BookmarkedFlightsDatabase
+import bitshift.studios.flightsapp.data.db.AppDatabase
 import bitshift.studios.flightsapp.data.repository.BookmarkedFlightDataRepositoryImpl
 import bitshift.studios.flightsapp.data.repository.FlightDataRepositoryImpl
+import bitshift.studios.flightsapp.domain.repository.FlightDataRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -17,12 +17,12 @@ import javax.inject.Singleton
 object AppModule {
 	@Provides
 	@Singleton
-	fun providesAirportDatabase(app: Application): AirportDatabase {
+	fun providesAppDatabase(app: Application): AppDatabase {
 		return Room
 			.databaseBuilder(
 				app.applicationContext,
-				AirportDatabase::class.java,
-				AirportDatabase.databaseName
+				AppDatabase::class.java,
+				AppDatabase.databaseName
 			)
 			.createFromAsset("database/flight_search.db")
 			.fallbackToDestructiveMigration()
@@ -31,26 +31,13 @@ object AppModule {
 
 	@Provides
 	@Singleton
-	fun providesBookmarkedFlightsDatabase(app: Application): BookmarkedFlightsDatabase {
-		return Room
-			.databaseBuilder(
-				app.applicationContext,
-				BookmarkedFlightsDatabase::class.java,
-				BookmarkedFlightsDatabase.databaseName
-			)
-			.fallbackToDestructiveMigration()
-			.build()
+	fun providesFlightDataRepository(db: AppDatabase): FlightDataRepository {
+		return FlightDataRepositoryImpl(db.airportDao())
 	}
 
 	@Provides
 	@Singleton
-	fun providesFlightDataRepository(db: AirportDatabase): FlightDataRepositoryImpl {
-		return FlightDataRepositoryImpl(db.dao())
-	}
-
-	@Provides
-	@Singleton
-	fun providesBookmarkedFlightDataRepository(db: BookmarkedFlightsDatabase): BookmarkedFlightDataRepositoryImpl {
-		return BookmarkedFlightDataRepositoryImpl(db.dao())
+	fun providesBookmarkedFlightDataRepository(db: AppDatabase): BookmarkedFlightDataRepositoryImpl {
+		return BookmarkedFlightDataRepositoryImpl(db.bookmarkedFlightsDao())
 	}
 }
