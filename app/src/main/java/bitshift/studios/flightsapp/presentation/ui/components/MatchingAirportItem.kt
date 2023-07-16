@@ -1,6 +1,7 @@
 package bitshift.studios.flightsapp.presentation.ui.components
 
 import androidx.compose.foundation.border
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -32,13 +33,17 @@ fun MatchingAirportItem(
 	modifier: Modifier = Modifier,
 	airport: AirportEntity,
 	searchQuery: String,
-	isDarkTheme: Boolean
+	isDarkTheme: Boolean,
+	onAirportItemClicked: (String) -> Unit
 ) {
 	Row(
 		verticalAlignment = Alignment.Top,
 		horizontalArrangement = Arrangement.SpaceBetween,
 		modifier = modifier
 			.fillMaxWidth()
+			.clickable {
+				onAirportItemClicked(airport.iataCode)
+			}
 	) {
 		Row(
 			verticalAlignment = Alignment.Top,

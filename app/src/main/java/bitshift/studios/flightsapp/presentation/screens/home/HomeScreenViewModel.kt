@@ -4,7 +4,6 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import bitshift.studios.flightsapp.data.db.airport.entities.AirportEntity
-import bitshift.studios.flightsapp.domain.repository.AirportDataRepository
 import bitshift.studios.flightsapp.domain.usecases.AppUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
@@ -16,11 +15,10 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-private const val TAG = "HOME"
+private const val TAG = "AIR"
 
 @HiltViewModel
 class HomeScreenViewModel @Inject constructor(
-	private val airportDataRepository: AirportDataRepository,
 	private val useCases: AppUseCases
 ) : ViewModel() {
 	data class HomeScreenUIState(
@@ -40,7 +38,7 @@ class HomeScreenViewModel @Inject constructor(
 		}
 
 		for (airport in testAirports) {
-			Log.d("AIR", airport.name)
+			Log.d(TAG, airport.name)
 		}
 	}
 

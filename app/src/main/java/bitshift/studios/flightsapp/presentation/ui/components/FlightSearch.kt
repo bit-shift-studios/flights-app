@@ -24,7 +24,8 @@ fun FlightSearch(
 	padding: PaddingValues,
 	isDarkTheme: Boolean,
 	searchResults: List<AirportEntity>,
-	searchQuery: String
+	searchQuery: String,
+	onAirportItemClicked: (String) -> Unit
 ) {
 	Box(
 		modifier = modifier
@@ -46,11 +47,12 @@ fun FlightSearch(
 				.padding(top = 56.dp),
 			verticalArrangement = Arrangement.spacedBy(24.dp)
 		) {
-			items(items = searchResults) { airport ->
+			items(items = searchResults, key = { it.id }) { airport ->
 				MatchingAirportItem(
 					airport = airport,
 					searchQuery = searchQuery,
-					isDarkTheme = isDarkTheme
+					isDarkTheme = isDarkTheme,
+					onAirportItemClicked = { onAirportItemClicked(it) }
 				)
 			}
 		}

@@ -6,13 +6,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.rememberCoroutineScope
+import bitshift.studios.flightsapp.data.db.airport.entities.AirportEntity
 import bitshift.studios.flightsapp.presentation.ui.components.FlightSearch
 import bitshift.studios.flightsapp.presentation.ui.components.SearchBar
 import kotlinx.coroutines.launch
 
 @Composable
 fun HomeScreen(
-	viewModel: HomeScreenViewModel
+	viewModel: HomeScreenViewModel,
+	onAirportItemClicked: (String) -> Unit
 ) {
 	val uiState = viewModel.uiState.collectAsState().value
 	val searchResults by uiState.searchResults.collectAsState(emptyList())
@@ -34,7 +36,10 @@ fun HomeScreen(
 			padding = padding,
 			isDarkTheme = isDarkTheme,
 			searchResults = searchResults,
-			searchQuery = uiState.searchQuery
+			searchQuery = uiState.searchQuery,
+			onAirportItemClicked = {
+				onAirportItemClicked(it)
+			}
 		)
 	}
 }
