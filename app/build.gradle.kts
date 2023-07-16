@@ -87,6 +87,9 @@ dependencies {
     // Datastore
     implementation("androidx.datastore:datastore:${rootProject.extra["datastore_version"]}")
 
+    // Lottie
+    implementation("com.airbnb.android:lottie-compose:${rootProject.extra["lottie_version"]}")
+
     // Testing
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")

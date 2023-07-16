@@ -9,6 +9,7 @@ buildscript {
         set("viewmodel_compose_version", "2.6.1")
         set("navigation_compose_version", "2.6.0")
         set("hilt_navigation_compose_version", "1.0.0")
+        set("lottie_version", "6.0.1")
     }
 }
 
