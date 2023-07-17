@@ -1,6 +1,5 @@
 package bitshift.studios.flightsapp.presentation.ui.components
 
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -11,8 +10,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.unit.dp
 import bitshift.studios.flightsapp.R
 import bitshift.studios.flightsapp.data.db.airport.entities.AirportEntity
 import bitshift.studios.flightsapp.presentation.ui.theme.Main050
@@ -37,7 +36,10 @@ fun FlightSearch(
 			style = MaterialTheme.typography.labelLarge,
 			color = if (isDarkTheme) Main050 else Main300,
 			modifier = Modifier
-				.padding(vertical = 8.dp, horizontal = 16.dp)
+				.padding(
+					vertical = dimensionResource(id = R.dimen.padding_small),
+					horizontal = dimensionResource(id = R.dimen.padding_medium)
+				)
 		)
 
 		if (searchResults.isEmpty()) {
@@ -46,7 +48,7 @@ fun FlightSearch(
 			LazyColumn(
 				modifier = modifier
 					.fillMaxWidth()
-					.padding(top = 56.dp)
+					.padding(top = dimensionResource(id = R.dimen.padding_xxlarge))
 			) {
 				items(items = searchResults, key = { it.id }) { airport ->
 					MatchingAirportItem(

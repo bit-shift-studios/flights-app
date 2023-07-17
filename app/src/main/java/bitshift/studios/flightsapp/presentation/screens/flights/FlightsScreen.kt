@@ -8,7 +8,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
+import bitshift.studios.flightsapp.R
 
 @Composable
 fun FlightsScreen(
@@ -22,7 +24,7 @@ fun FlightsScreen(
 		LazyColumn(
 			modifier = modifier
 				.padding(padding)
-				.padding(horizontal = 16.dp)
+				.padding(horizontal = dimensionResource(id = R.dimen.padding_medium))
 		) {
 			items(items = flightList, key = { it.id }) { airport ->
 				Text(text = airport.name)

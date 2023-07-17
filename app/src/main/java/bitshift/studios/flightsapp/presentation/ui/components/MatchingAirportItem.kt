@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
@@ -50,17 +51,21 @@ fun MatchingAirportItem(
 			horizontalArrangement = Arrangement.SpaceBetween,
 			modifier = modifier
 				.fillMaxWidth()
-				.defaultMinSize(minHeight = 48.dp)
+				.defaultMinSize(minHeight = dimensionResource(id = R.dimen.size_small))
 				.clickable {
 					onAirportItemClicked(airport.iataCode)
 				}
 		) {
 			Row(
 				verticalAlignment = Alignment.Top,
-				horizontalArrangement = Arrangement.spacedBy(16.dp),
+				horizontalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_medium)),
 				modifier = Modifier
-					.weight(5/6f)
-					.padding(start = 16.dp, top = 16.dp, bottom = 16.dp)
+					.weight(5 / 6f)
+					.padding(
+						top = dimensionResource(id = R.dimen.padding_medium),
+						start = dimensionResource(id = R.dimen.padding_medium),
+						bottom = dimensionResource(id = R.dimen.padding_medium),
+					)
 			) {
 
 				val lowercaseFullText = airport.name.lowercase(Locale.getDefault())
@@ -89,7 +94,7 @@ fun MatchingAirportItem(
 					color = Main100,
 					style = MaterialTheme.typography.labelMedium,
 					modifier = Modifier
-						.width(44.dp)
+						.width(dimensionResource(id = R.dimen.size_small))
 				)
 
 				Text(
@@ -105,9 +110,9 @@ fun MatchingAirportItem(
 				contentDescription = stringResource(id = R.string.description_checkout),
 				tint = Main100,
 				modifier = Modifier
-					.padding(start = 16.dp, top = 16.dp, end = 16.dp, bottom = 16.dp)
-					.width(40.dp)
-					.border(1.dp, Main100, RoundedCornerShape(8.dp))
+					.padding(dimensionResource(id = R.dimen.padding_medium))
+					.width(dimensionResource(id = R.dimen.size_small))
+					.border(1.dp, Main100, RoundedCornerShape(dimensionResource(id = R.dimen.size_xxsmall)))
 			)
 		}
 	}
