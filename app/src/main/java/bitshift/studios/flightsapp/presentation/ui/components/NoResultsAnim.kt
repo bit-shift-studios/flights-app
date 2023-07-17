@@ -1,6 +1,5 @@
 package bitshift.studios.flightsapp.presentation.ui.components
 
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -11,9 +10,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import bitshift.studios.flightsapp.R
 import bitshift.studios.flightsapp.presentation.ui.theme.Main050
@@ -37,7 +36,7 @@ fun NoResultsAnim(
 			LottieAnimation(
 				composition,
 				iterations = Int.MAX_VALUE,
-				modifier = Modifier.size(512.dp),
+				modifier = Modifier.size(dimensionResource(id = R.dimen.size_large)),
 				alignment = Alignment.Center
 			)
 
@@ -48,14 +47,18 @@ fun NoResultsAnim(
 				textAlign = TextAlign.Center,
 				fontSize = 40.sp,
 				lineHeight = 48.sp,
-				modifier = Modifier.padding(start = 16.dp, end = 16.dp, bottom = 18.dp)
+				modifier = Modifier.padding(
+					start = dimensionResource(id = R.dimen.padding_medium),
+					end = dimensionResource(id = R.dimen.padding_medium),
+					bottom = dimensionResource(id = R.dimen.padding_medium),
+				)
 			)
 
 			Text(
 				text = stringResource(id = R.string.no_matches_description),
 				style = MaterialTheme.typography.bodyLarge,
 				color = if (isDarkTheme) Main050 else Main300,
-				modifier = Modifier.padding(horizontal = 16.dp)
+				modifier = Modifier.padding(horizontal = dimensionResource(id = R.dimen.padding_medium))
 			)
 		}
 	}
