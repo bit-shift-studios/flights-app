@@ -31,29 +31,31 @@ fun FlightSearch(
 		modifier = modifier
 			.fillMaxWidth()
 			.padding(padding)
-			.padding(horizontal = 16.dp)
 	) {
 		Text(
 			text = stringResource(id = R.string.matches),
 			style = MaterialTheme.typography.labelLarge,
 			color = if (isDarkTheme) Main050 else Main300,
 			modifier = Modifier
-				.padding(vertical = 8.dp)
+				.padding(vertical = 8.dp, horizontal = 16.dp)
 		)
 
-		LazyColumn(
-			modifier = modifier
-				.fillMaxWidth()
-				.padding(top = 56.dp),
-			verticalArrangement = Arrangement.spacedBy(24.dp)
-		) {
-			items(items = searchResults, key = { it.id }) { airport ->
-				MatchingAirportItem(
-					airport = airport,
-					searchQuery = searchQuery,
-					isDarkTheme = isDarkTheme,
-					onAirportItemClicked = { onAirportItemClicked(it) }
-				)
+		if (searchResults.isEmpty()) {
+			NoResultsAnim(isDarkTheme = isDarkTheme)
+		} else {
+			LazyColumn(
+				modifier = modifier
+					.fillMaxWidth()
+					.padding(top = 56.dp)
+			) {
+				items(items = searchResults, key = { it.id }) { airport ->
+					MatchingAirportItem(
+						airport = airport,
+						searchQuery = searchQuery,
+						isDarkTheme = isDarkTheme,
+						onAirportItemClicked = { onAirportItemClicked(it) }
+					)
+				}
 			}
 		}
 	}
