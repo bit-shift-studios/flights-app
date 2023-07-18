@@ -1,6 +1,5 @@
 package bitshift.studios.flightsapp.presentation.ui.components
 
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -8,7 +7,6 @@ import androidx.compose.foundation.layout.defaultMinSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.ripple.LocalRippleTheme
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -24,7 +22,6 @@ import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.dp
 import bitshift.studios.flightsapp.R
 import bitshift.studios.flightsapp.data.db.airport.entities.AirportEntity
 import bitshift.studios.flightsapp.presentation.ui.theme.Main050
@@ -51,7 +48,7 @@ fun MatchingAirportItem(
 			horizontalArrangement = Arrangement.SpaceBetween,
 			modifier = modifier
 				.fillMaxWidth()
-				.defaultMinSize(minHeight = dimensionResource(id = R.dimen.size_small))
+				.defaultMinSize(minHeight = dimensionResource(id = R.dimen.size_48))
 				.clickable {
 					onAirportItemClicked(airport.iataCode)
 				}
@@ -94,7 +91,7 @@ fun MatchingAirportItem(
 					color = Main100,
 					style = MaterialTheme.typography.labelMedium,
 					modifier = Modifier
-						.width(dimensionResource(id = R.dimen.size_small))
+						.width(dimensionResource(id = R.dimen.size_48))
 				)
 
 				Text(
@@ -110,9 +107,12 @@ fun MatchingAirportItem(
 				contentDescription = stringResource(id = R.string.description_checkout),
 				tint = Main100,
 				modifier = Modifier
-					.padding(dimensionResource(id = R.dimen.padding_medium))
-					.width(dimensionResource(id = R.dimen.size_small))
-					.border(1.dp, Main100, RoundedCornerShape(dimensionResource(id = R.dimen.size_xxsmall)))
+					.padding(
+						start = dimensionResource(id = R.dimen.padding_medium),
+						top = dimensionResource(id = R.dimen.padding_medium),
+						bottom = dimensionResource(id = R.dimen.padding_medium),
+					)
+					.width(dimensionResource(id = R.dimen.size_48))
 			)
 		}
 	}

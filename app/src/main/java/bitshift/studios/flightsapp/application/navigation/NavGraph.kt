@@ -33,7 +33,10 @@ fun NavGraph(navHostController: NavHostController) {
 			viewModel.updateFlightList(flightCode)
 
 			FlightsScreen(
-				viewModel = viewModel
+				viewModel = viewModel,
+				onBackButtonClicked = {
+					navHostController.popBackStack()
+				}
 			)
 		}
 	}

@@ -3,12 +3,14 @@
     <dimen name="padding_small">8dp</dimen>
     <dimen name="padding_medium">16dp</dimen>
     <dimen name="padding_large">24dp</dimen>
-    <dimen name="padding_xlarge">32dp</dimen>
-    <dimen name="padding_xxlarge">48dp</dimen>
-    <dimen name="padding_xxxlarge">64dp</dimen>
 
-    <dimen name="size_xxsmall">8dp</dimen>
-    <dimen name="size_xsmall">16dp</dimen>
-    <dimen name="size_small">48dp</dimen>
-    <dimen name="size_large">512dp</dimen>
+    <dimen name="size_8">8dp</dimen>
+    <dimen name="size_16">16dp</dimen>
+    <dimen name="size_24">24dp</dimen>
+    <dimen name="size_32">32dp</dimen>
+    <dimen name="size_48">48dp</dimen>
+    <dimen name="size_64">64dp</dimen>
+    <dimen name="size_128">128dp</dimen>
+    <dimen name="size_256">256dp</dimen>
+    <dimen name="size_320">320dp</dimen>
 </resources>

@@ -36,7 +36,10 @@ fun NoResultsAnim(
 			LottieAnimation(
 				composition,
 				iterations = Int.MAX_VALUE,
-				modifier = Modifier.size(dimensionResource(id = R.dimen.size_large)),
+				modifier = Modifier.size(
+					width = dimensionResource(id = R.dimen.size_320),
+					height = dimensionResource(id = R.dimen.size_256)
+				),
 				alignment = Alignment.Center
 			)
 

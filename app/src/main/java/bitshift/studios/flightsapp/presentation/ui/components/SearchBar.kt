@@ -51,7 +51,7 @@ fun SearchBar(
 				color = if (isDarkTheme) Main050.copy(alpha = 0.7F) else Main250.copy(alpha = 0.7F)
 			)
 		},
-		shape = RoundedCornerShape(dimensionResource(id = R.dimen.size_xsmall)),
+		shape = RoundedCornerShape(dimensionResource(id = R.dimen.size_16)),
 		colors = TextFieldDefaults.outlinedTextFieldColors(
 			containerColor = containerColor,
 			unfocusedBorderColor = containerColor,
