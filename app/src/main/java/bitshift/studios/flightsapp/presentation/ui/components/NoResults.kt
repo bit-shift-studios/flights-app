@@ -1,6 +1,8 @@
 package bitshift.studios.flightsapp.presentation.ui.components
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -10,6 +12,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -33,15 +36,22 @@ fun NoResultsAnim(
 		modifier = modifier.fillMaxSize(),
 	) {
 		item {
-			LottieAnimation(
-				composition,
-				iterations = Int.MAX_VALUE,
-				modifier = Modifier.size(
-					width = dimensionResource(id = R.dimen.size_320),
-					height = dimensionResource(id = R.dimen.size_256)
-				),
-				alignment = Alignment.Center
-			)
+			Column(
+				modifier = modifier.fillMaxWidth(),
+				horizontalAlignment = Alignment.CenterHorizontally
+			) {
+				LottieAnimation(
+					composition,
+					iterations = Int.MAX_VALUE,
+					modifier = Modifier
+						.size(
+							width = dimensionResource(id = R.dimen.size_320),
+							height = dimensionResource(id = R.dimen.size_256)
+						),
+					alignment = Alignment.Center,
+					contentScale = ContentScale.FillWidth
+				)
+			}
 
 			Text(
 				text = stringResource(id = R.string.no_matches),
@@ -60,7 +70,7 @@ fun NoResultsAnim(
 			Text(
 				text = stringResource(id = R.string.no_matches_description),
 				style = MaterialTheme.typography.bodyLarge,
-				color = if (isDarkTheme) Main050 else Main300,
+				color = if (isDarkTheme) Main050.copy(alpha = 0.8F) else Main300.copy(alpha = 0.8F),
 				modifier = Modifier.padding(horizontal = dimensionResource(id = R.dimen.padding_medium))
 			)
 		}
