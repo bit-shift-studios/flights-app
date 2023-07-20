@@ -30,7 +30,7 @@ fun NavGraph(navHostController: NavHostController) {
 			val flightCode = backStackEntry.arguments?.getString("code")!!
 			val viewModel = hiltViewModel<FlightScreenViewModel>()
 
-			viewModel.updateFlightList(flightCode)
+			viewModel.updateFlightCode(flightCode)
 
 			FlightsScreen(
 				viewModel = viewModel,

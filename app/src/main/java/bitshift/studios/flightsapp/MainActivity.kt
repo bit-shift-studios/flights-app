@@ -3,26 +3,27 @@ package bitshift.studios.flightsapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
 import bitshift.studios.flightsapp.application.navigation.NavGraph
 import bitshift.studios.flightsapp.presentation.ui.theme.FlightsAppTheme
+import bitshift.studios.flightsapp.presentation.ui.theme.Main300
+import bitshift.studios.flightsapp.presentation.ui.theme.Neutral050
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 	override fun onCreate(savedInstanceState: Bundle?) {
+		installSplashScreen()
 		super.onCreate(savedInstanceState)
 		setContent {
 			FlightsAppTheme {
-				val navHostController = rememberNavController()
-				NavGraph(navHostController)
+				Surface(color = if (isSystemInDarkTheme()) Main300 else Neutral050) {
+					val navHostController = rememberNavController()
+					NavGraph(navHostController)
+				}
 			}
 		}
 	}
