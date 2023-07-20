@@ -14,8 +14,8 @@ fun HomeScreen(
 	onAirportItemClicked: (String) -> Unit
 ) {
 	val uiState by viewModel.uiState.collectAsState()
-	val isLoading by viewModel.isLoading.collectAsState()
-	val searchResults by viewModel.searchResults.collectAsState()
+	val isLoading = uiState.isLoading
+	val searchResults = uiState.searchResults
 	val isDarkTheme = isSystemInDarkTheme()
 
 	Scaffold(
