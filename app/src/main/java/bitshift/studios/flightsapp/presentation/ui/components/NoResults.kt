@@ -25,7 +25,7 @@ import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.rememberLottieComposition
 
 @Composable
-fun NoResultsAnim(
+fun NoResults(
 	modifier: Modifier = Modifier,
 	isDarkTheme: Boolean
 ) {

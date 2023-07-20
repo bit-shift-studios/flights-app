@@ -1,5 +1,6 @@
 package bitshift.studios.flightsapp.presentation.ui.components
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
@@ -24,6 +25,7 @@ fun FlightSearch(
 	modifier: Modifier = Modifier,
 	padding: PaddingValues,
 	isDarkTheme: Boolean,
+	isLoading: Boolean,
 	searchResults: List<AirportEntity>,
 	searchQuery: String,
 	onAirportItemClicked: (String) -> Unit
@@ -46,9 +48,11 @@ fun FlightSearch(
 				)
 		)
 
-		if (searchResults.isEmpty()) {
-			NoResultsAnim(isDarkTheme = isDarkTheme)
-		} else {
+		if (isLoading) { Loading() }
+
+		Log.d("AIR", isLoading.toString())
+
+		if (!isLoading && searchResults.isNotEmpty()) {
 			LazyColumn(
 				modifier = modifier
 					.fillMaxWidth()
@@ -64,5 +68,11 @@ fun FlightSearch(
 				}
 			}
 		}
+
+		if (!isLoading && searchResults.isEmpty()) {
+			NoResults(isDarkTheme = isDarkTheme)
+		}
+
+		Log.d("AIR", searchResults.toString())
 	}
 }
