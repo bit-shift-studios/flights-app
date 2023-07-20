@@ -8,4 +8,9 @@
     <string name="arrives_at">ARRIVES AT</string>
     <string name="departs_from">DEPARTS FROM</string>
     <string name="flights_from">FLIGHTS FROM</string>
+    <string name="no_matches">NO MATCHES</string>
+
+    <string name="no_matches_description">Sorry, there aren\'t
+        any airports matching that search in our database</string>
+    <string name="search_flights">Search flights</string>
 </resources>

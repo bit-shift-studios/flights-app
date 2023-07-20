@@ -24,7 +24,7 @@ android {
     }
 
     buildTypes {
-        release {
+        getByName("release") {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
@@ -86,6 +86,9 @@ dependencies {
 
     // Datastore
     implementation("androidx.datastore:datastore:${rootProject.extra["datastore_version"]}")
+
+    // Lottie
+    implementation("com.airbnb.android:lottie-compose:${rootProject.extra["lottie_version"]}")
 
     // Testing
     testImplementation("junit:junit:4.13.2")

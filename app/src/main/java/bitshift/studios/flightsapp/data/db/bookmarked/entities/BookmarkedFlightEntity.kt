@@ -5,7 +5,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "bookmarked")
-data class BookmarkedAirportEntity(
+data class BookmarkedFlightEntity(
 	@PrimaryKey
 	val id: Int,
 	@ColumnInfo(name = "departure_code")

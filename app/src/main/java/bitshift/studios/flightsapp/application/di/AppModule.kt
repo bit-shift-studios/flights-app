@@ -4,10 +4,11 @@ import android.app.Application
 import androidx.room.Room
 import bitshift.studios.flightsapp.data.db.AppDatabase
 import bitshift.studios.flightsapp.data.repository.BookmarkedFlightsDataRepositoryImpl
-import bitshift.studios.flightsapp.data.repository.FlightDataRepositoryImpl
-import bitshift.studios.flightsapp.domain.repository.FlightDataRepository
+import bitshift.studios.flightsapp.data.repository.AirportDataRepositoryImpl
+import bitshift.studios.flightsapp.domain.repository.AirportDataRepository
 import bitshift.studios.flightsapp.domain.usecases.AppUseCases
 import bitshift.studios.flightsapp.domain.usecases.GetAirportsMatching
+import bitshift.studios.flightsapp.domain.usecases.GetFlightsFromAirport
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -33,8 +34,8 @@ object AppModule {
 
 	@Provides
 	@Singleton
-	fun providesFlightDataRepository(db: AppDatabase): FlightDataRepository {
-		return FlightDataRepositoryImpl(db.airportDao())
+	fun providesAirportDataRepository(db: AppDatabase): AirportDataRepository {
+		return AirportDataRepositoryImpl(db.airportDao())
 	}
 
 	@Provides
@@ -45,9 +46,10 @@ object AppModule {
 
 	@Provides
 	@Singleton
-	fun providesAppUseCases(flightDataRepository: FlightDataRepository): AppUseCases {
+	fun providesAppUseCases(airportDataRepository: AirportDataRepository): AppUseCases {
 		return AppUseCases(
-			GetAirportsMatching(flightDataRepository)
+			GetAirportsMatching(airportDataRepository),
+			GetFlightsFromAirport(airportDataRepository)
 		)
 	}
 }

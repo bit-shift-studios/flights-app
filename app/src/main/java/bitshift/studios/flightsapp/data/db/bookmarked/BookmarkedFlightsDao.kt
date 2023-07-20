@@ -5,7 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import bitshift.studios.flightsapp.data.db.bookmarked.entities.BookmarkedAirportEntity
+import bitshift.studios.flightsapp.data.db.bookmarked.entities.BookmarkedFlightEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -15,7 +15,7 @@ interface BookmarkedFlightsDao {
 			SELECT * FROM bookmarked
 		"""
 	)
-	fun getBookmarkedAirports(): Flow<List<BookmarkedAirportEntity>>
+	fun getBookmarkedAirports(): Flow<List<BookmarkedFlightEntity>>
 
 	@Query(
 		"""
@@ -25,8 +25,8 @@ interface BookmarkedFlightsDao {
 	suspend fun isAirportBookmarked(code: String): Boolean
 
 	@Insert(onConflict = OnConflictStrategy.IGNORE)
-	suspend fun addAirportToBookmarks(airport: BookmarkedAirportEntity)
+	suspend fun addAirportToBookmarks(airport: BookmarkedFlightEntity)
 
 	@Delete
-	suspend fun removeAirportFromBookmarks(airport: BookmarkedAirportEntity)
+	suspend fun removeAirportFromBookmarks(airport: BookmarkedFlightEntity)
 }

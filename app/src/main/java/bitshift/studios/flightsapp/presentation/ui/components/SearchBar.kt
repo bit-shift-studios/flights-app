@@ -10,10 +10,10 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import bitshift.studios.flightsapp.R
 import bitshift.studios.flightsapp.presentation.ui.theme.FlightsAppTheme
 import bitshift.studios.flightsapp.presentation.ui.theme.Main050
@@ -47,11 +47,11 @@ fun SearchBar(
 		},
 		placeholder = {
 			Text(
-				text = "Search flights",
-				color = if (isDarkTheme) Main050.copy(alpha = 0.5F) else Main250.copy(alpha = 0.7F)
+				text = stringResource(id = R.string.search_flights),
+				color = if (isDarkTheme) Main050.copy(alpha = 0.7F) else Main250.copy(alpha = 0.7F)
 			)
 		},
-		shape = RoundedCornerShape(16.dp),
+		shape = RoundedCornerShape(dimensionResource(id = R.dimen.size_16)),
 		colors = TextFieldDefaults.outlinedTextFieldColors(
 			containerColor = containerColor,
 			unfocusedBorderColor = containerColor,
@@ -60,7 +60,7 @@ fun SearchBar(
 		),
 		modifier = modifier
 			.fillMaxWidth()
-			.padding(16.dp)
+			.padding(dimensionResource(id = R.dimen.padding_medium))
 	)
 }
 

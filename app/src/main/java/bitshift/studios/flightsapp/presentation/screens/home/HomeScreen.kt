@@ -5,18 +5,17 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.rememberCoroutineScope
 import bitshift.studios.flightsapp.presentation.ui.components.FlightSearch
 import bitshift.studios.flightsapp.presentation.ui.components.SearchBar
-import kotlinx.coroutines.launch
 
 @Composable
 fun HomeScreen(
-	viewModel: HomeScreenViewModel
+	viewModel: HomeScreenViewModel,
+	onAirportItemClicked: (String) -> Unit
 ) {
-	val uiState = viewModel.uiState.collectAsState().value
-	val searchResults by uiState.searchResults.collectAsState(emptyList())
-	val coroutineScope = rememberCoroutineScope()
+	val uiState by viewModel.uiState.collectAsState()
+	val isLoading = uiState.isLoading
+	val searchResults = uiState.searchResults
 	val isDarkTheme = isSystemInDarkTheme()
 
 	Scaffold(
@@ -24,17 +23,21 @@ fun HomeScreen(
 			SearchBar(
 				isDarkTheme = isDarkTheme,
 				searchQuery = uiState.searchQuery,
-				onSearchQueryChange = {
-					coroutineScope.launch { viewModel.updateSearchQuery(it) }
-				}
+				onSearchQueryChange = { viewModel.updateSearchQuery(it) }
 			)
 		},
 	) { padding ->
-		FlightSearch(
-			padding = padding,
-			isDarkTheme = isDarkTheme,
-			searchResults = searchResults,
-			searchQuery = uiState.searchQuery
-		)
+		if (uiState.searchQuery.isNotEmpty()) {
+			FlightSearch(
+				padding = padding,
+				isDarkTheme = isDarkTheme,
+				isLoading = isLoading,
+				searchResults = searchResults,
+				searchQuery = uiState.searchQuery,
+				onAirportItemClicked = {
+					onAirportItemClicked(it)
+				}
+			)
+		}
 	}
 }
