@@ -1,4 +1,4 @@
-![Cover](https://github.com/bit-shift-studios/flights-app/assets/70282966/9a6507bc-d566-4b42-9c82-f5936f129a53)
+![Cover](https://github.com/bit-shift-studios/flights-app/assets/70282966/39f5275e-4b05-40dd-b751-6a883c7dd410)
 
 # Flights
 
