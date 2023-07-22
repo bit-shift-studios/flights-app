@@ -55,7 +55,7 @@ fun FlightScreenAppBar(
 			Icon(
 				painter = painterResource(id = R.drawable.icon_arrow_left),
 				contentDescription = "back",
-				modifier = modifier.size(dimensionResource(id = R.dimen.size_256)),
+				modifier = modifier.size(dimensionResource(id = R.dimen.size_24)),
 				tint = if (isDarkTheme) Neutral050 else Main250
 			)
 		}
