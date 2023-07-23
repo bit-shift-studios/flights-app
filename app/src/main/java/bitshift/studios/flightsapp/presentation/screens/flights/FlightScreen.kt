@@ -37,7 +37,8 @@ fun FlightsScreen(
 		} else {
 			FlightDisplay(
 				padding = padding,
-				flightList = flightList
+				flightList = flightList,
+				isDarkTheme = isDarkTheme
 			)
 		}
 	}
