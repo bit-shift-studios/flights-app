@@ -58,7 +58,11 @@ fun FlightDestinationItem(
 			onClick = { /*TODO*/ },
 			modifier = modifier
 				.widthIn(min = dimensionResource(id = R.dimen.size_24))
-				.padding(end = dimensionResource(id = R.dimen.size_16))
+				.padding(
+					top = dimensionResource(id = R.dimen.size_8),
+						end = dimensionResource (id = R.dimen.size_16),
+					bottom = dimensionResource(id = R.dimen.size_16)
+				)
 		) {
 			val iconResID = if (isBookmarked) R.drawable.icon_bookmark_check else R.drawable.icon_bookmark_add
 			Icon(
