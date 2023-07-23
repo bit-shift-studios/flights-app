@@ -8,6 +8,8 @@ import androidx.compose.runtime.collectAsState
 import bitshift.studios.flightsapp.presentation.ui.components.FlightDisplay
 import bitshift.studios.flightsapp.presentation.ui.components.FlightScreenAppBar
 import bitshift.studios.flightsapp.presentation.ui.components.Loading
+import bitshift.studios.flightsapp.presentation.ui.theme.Main300
+import bitshift.studios.flightsapp.presentation.ui.theme.Neutral050
 
 @Composable
 fun FlightsScreen(
@@ -26,7 +28,8 @@ fun FlightsScreen(
 				flightCode = uiState.flightCode,
 				onBackButtonClicked = onBackButtonClicked
 			)
-		}
+		},
+		containerColor = if (isDarkTheme) Main300 else Neutral050
 	) { padding ->
 		if (isLoading) {
 			Loading()
