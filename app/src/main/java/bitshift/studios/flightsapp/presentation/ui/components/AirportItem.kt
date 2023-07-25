@@ -90,8 +90,7 @@ fun MatchingAirportItem(
 					text = airport.iataCode,
 					color = Main100,
 					style = MaterialTheme.typography.labelMedium,
-					modifier = Modifier
-						.width(dimensionResource(id = R.dimen.size_48))
+					modifier = Modifier.width(dimensionResource(id = R.dimen.size_48))
 				)
 
 				Text(
