@@ -52,7 +52,7 @@ fun FlightsAppTheme(
 			window.statusBarColor = if (darkTheme) Main300.toArgb() else Neutral050.toArgb()
 			window.navigationBarColor = if (darkTheme) Main300.toArgb() else Neutral050.toArgb()
 
-			WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
+			WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = !darkTheme
 		}
 	}
 
