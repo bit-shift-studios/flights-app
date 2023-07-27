@@ -15,13 +15,13 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalView
 import androidx.core.view.WindowCompat
 
-private val DarkColorScheme = darkColorScheme(
+private val darkColorScheme = darkColorScheme(
 	primary = Main050,
 	secondary = Main250,
 	background = Main300
 )
 
-private val LightColorScheme = lightColorScheme(
+private val lightColorScheme = lightColorScheme(
 	primary = Main100,
 	secondary = Main250,
 	background = Neutral050
@@ -39,8 +39,8 @@ fun FlightsAppTheme(
 			if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
 		}
 
-		darkTheme -> DarkColorScheme
-		else -> LightColorScheme
+		darkTheme -> darkColorScheme
+		else -> lightColorScheme
 	}
 
 	val view = LocalView.current
@@ -48,7 +48,10 @@ fun FlightsAppTheme(
 	if (!view.isInEditMode) {
 		SideEffect {
 			val window = (view.context as Activity).window
+
 			window.statusBarColor = if (darkTheme) Main300.toArgb() else Neutral050.toArgb()
+			window.navigationBarColor = if (darkTheme) Main300.toArgb() else Neutral050.toArgb()
+
 			WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
 		}
 	}
