@@ -3,12 +3,12 @@ package bitshift.studios.flightsapp.application.di
 import android.app.Application
 import androidx.room.Room
 import bitshift.studios.flightsapp.data.db.AppDatabase
-import bitshift.studios.flightsapp.data.repository.BookmarkedFlightsDataRepositoryImpl
 import bitshift.studios.flightsapp.data.repository.AirportDataRepositoryImpl
+import bitshift.studios.flightsapp.data.repository.BookmarkedFlightsDataRepositoryImpl
 import bitshift.studios.flightsapp.domain.repository.AirportDataRepository
 import bitshift.studios.flightsapp.domain.usecases.AppUseCases
-import bitshift.studios.flightsapp.domain.usecases.GetAirportsMatching
-import bitshift.studios.flightsapp.domain.usecases.GetFlightsFromAirport
+import bitshift.studios.flightsapp.domain.usecases.airports.GetAirportsMatching
+import bitshift.studios.flightsapp.domain.usecases.airports.GetFlightsFromAirport
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

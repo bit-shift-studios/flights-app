@@ -1,4 +1,4 @@
-package bitshift.studios.flightsapp.domain.usecases
+package bitshift.studios.flightsapp.domain.usecases.airports
 
 import bitshift.studios.flightsapp.data.db.airport.entities.AirportEntity
 import bitshift.studios.flightsapp.domain.repository.AirportDataRepository
