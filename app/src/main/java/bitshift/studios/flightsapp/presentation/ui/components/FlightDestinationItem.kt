@@ -29,7 +29,8 @@ fun FlightDestinationItem(
 	number: Int,
 	name: String,
 	isDarkTheme: Boolean,
-	isBookmarked: Boolean
+	isBookmarked: Boolean,
+	bookmarkFlight: () -> Unit
 ) {
 	Row(
 		modifier = modifier
@@ -57,7 +58,7 @@ fun FlightDestinationItem(
 		}
 		
 		IconButton(
-			onClick = { /*TODO*/ },
+			onClick = { bookmarkFlight() },
 			modifier = modifier
 				.padding(start = dimensionResource(id = R.dimen.size_24))
 				.size(dimensionResource(id = R.dimen.size_24))

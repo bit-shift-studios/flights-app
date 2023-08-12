@@ -5,6 +5,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
+import bitshift.studios.flightsapp.data.db.airport.entities.AirportEntity
 import bitshift.studios.flightsapp.presentation.ui.components.FlightDisplay
 import bitshift.studios.flightsapp.presentation.ui.components.FlightScreenAppBar
 import bitshift.studios.flightsapp.presentation.ui.components.Loading
@@ -38,7 +39,10 @@ fun FlightsScreen(
 			FlightDisplay(
 				padding = padding,
 				flightList = flightList,
-				isDarkTheme = isDarkTheme
+				isDarkTheme = isDarkTheme,
+				bookmarkFlight = { airportEntity: AirportEntity ->
+					viewModel.bookmarkFlight(airportEntity, uiState.flightCode)
+				}
 			)
 		}
 	}

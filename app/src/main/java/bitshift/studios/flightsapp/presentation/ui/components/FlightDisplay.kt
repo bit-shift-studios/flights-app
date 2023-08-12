@@ -16,7 +16,8 @@ fun FlightDisplay(
 	modifier: Modifier = Modifier,
 	padding: PaddingValues,
 	flightList: List<AirportEntity>,
-	isDarkTheme: Boolean
+	isDarkTheme: Boolean,
+	bookmarkFlight: (AirportEntity) -> Unit
 ) {
 	LazyColumn(
 		modifier = modifier.padding(padding),
@@ -27,7 +28,8 @@ fun FlightDisplay(
 				number = flightList.indexOf(airport) + 1,
 				name = airport.name,
 				isDarkTheme = isDarkTheme,
-				isBookmarked = false
+				isBookmarked = false,
+				bookmarkFlight = { bookmarkFlight(airport) }
 			)
 		}
 	}

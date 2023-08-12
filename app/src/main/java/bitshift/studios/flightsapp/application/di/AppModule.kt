@@ -6,9 +6,11 @@ import bitshift.studios.flightsapp.data.db.AppDatabase
 import bitshift.studios.flightsapp.data.repository.AirportDataRepositoryImpl
 import bitshift.studios.flightsapp.data.repository.BookmarkedFlightsDataRepositoryImpl
 import bitshift.studios.flightsapp.domain.repository.AirportDataRepository
+import bitshift.studios.flightsapp.domain.repository.BookmarkedFlightsDataRepository
 import bitshift.studios.flightsapp.domain.usecases.AppUseCases
 import bitshift.studios.flightsapp.domain.usecases.airports.GetAirportsMatching
 import bitshift.studios.flightsapp.domain.usecases.airports.GetFlightsFromAirport
+import bitshift.studios.flightsapp.domain.usecases.bookmarked.BookmarkFlight
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -40,16 +42,20 @@ object AppModule {
 
 	@Provides
 	@Singleton
-	fun providesBookmarkedFlightsDataRepository(db: AppDatabase): BookmarkedFlightsDataRepositoryImpl {
+	fun providesBookmarkedFlightsDataRepository(db: AppDatabase): BookmarkedFlightsDataRepository {
 		return BookmarkedFlightsDataRepositoryImpl(db.bookmarkedFlightsDao())
 	}
 
 	@Provides
 	@Singleton
-	fun providesAppUseCases(airportDataRepository: AirportDataRepository): AppUseCases {
+	fun providesAppUseCases(
+		airportDataRepository: AirportDataRepository,
+		bookmarkedFlightsDataRepository: BookmarkedFlightsDataRepository
+	): AppUseCases {
 		return AppUseCases(
 			GetAirportsMatching(airportDataRepository),
-			GetFlightsFromAirport(airportDataRepository)
+			GetFlightsFromAirport(airportDataRepository),
+			BookmarkFlight(bookmarkedFlightsDataRepository)
 		)
 	}
 }
