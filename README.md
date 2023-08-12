@@ -8,10 +8,10 @@ A simple app that allows users to check flight arrival and departure destination
 
 The app is written in Kotlin and uses the Jetpack Compose UI framework. For those curious about the specific tools and libraries utilized, please find them listed below:
 
-  - RoomDB
-  - DataStore
-  - Navigation Compose
-  - Kapt and KSP
-  - Dagger Hilt
-  - Splash
-  - Lottie Animation
+- RoomDB
+- DataStore
+- Navigation Compose
+- Kapt and KSP
+- Dagger Hilt
+- Splash
+- Lottie Animation

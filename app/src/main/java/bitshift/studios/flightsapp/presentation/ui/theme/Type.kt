@@ -59,5 +59,13 @@ val Typography = Typography(
 		fontSize = 18.sp,
 		lineHeight = 24.sp,
 		letterSpacing = 0.5.sp
+	),
+
+	displayLarge = TextStyle(
+		fontFamily = SFProDisplay,
+		fontWeight = FontWeight.Normal,
+		fontSize = 20.sp,
+		lineHeight = 30.sp,
+		letterSpacing = 0.5.sp
 	)
 )

@@ -3,6 +3,7 @@
 
     <string name="description_search">search</string>
     <string name="description_checkout">checkout</string>
+    <string name="description_bookmark_airport">bookmark airport</string>
 
     <string name="matches">MATCHES</string>
     <string name="arrives_at">ARRIVES AT</string>

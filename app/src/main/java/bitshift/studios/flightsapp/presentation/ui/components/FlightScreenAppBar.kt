@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -34,10 +33,9 @@ fun FlightScreenAppBar(
 ) {
 	Row(
 		modifier = modifier
-			.padding(dimensionResource(id = R.dimen.size_16))
+			.padding(bottom = dimensionResource(id = R.dimen.size_16))
 			.background(
-				color = if (isDarkTheme) Main250 else Main050,
-				shape = RoundedCornerShape(dimensionResource(id = R.dimen.size_24))
+				color = if (isDarkTheme) Main300 else Main050
 			)
 			.fillMaxWidth(),
 		horizontalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.padding_small)),
@@ -55,7 +53,7 @@ fun FlightScreenAppBar(
 			Icon(
 				painter = painterResource(id = R.drawable.icon_arrow_left),
 				contentDescription = "back",
-				modifier = modifier.size(dimensionResource(id = R.dimen.size_256)),
+				modifier = modifier.size(dimensionResource(id = R.dimen.size_24)),
 				tint = if (isDarkTheme) Neutral050 else Main250
 			)
 		}

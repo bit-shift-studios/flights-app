@@ -7,6 +7,8 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import bitshift.studios.flightsapp.presentation.ui.components.FlightSearch
 import bitshift.studios.flightsapp.presentation.ui.components.SearchBar
+import bitshift.studios.flightsapp.presentation.ui.theme.Main300
+import bitshift.studios.flightsapp.presentation.ui.theme.Neutral050
 
 @Composable
 fun HomeScreen(
@@ -26,6 +28,7 @@ fun HomeScreen(
 				onSearchQueryChange = { viewModel.updateSearchQuery(it) }
 			)
 		},
+		containerColor = if (isDarkTheme) Main300 else Neutral050
 	) { padding ->
 		if (uiState.searchQuery.isNotEmpty()) {
 			FlightSearch(
