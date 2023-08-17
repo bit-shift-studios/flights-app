@@ -1,6 +1,5 @@
 package bitshift.studios.flightsapp.presentation.screens.flights
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import bitshift.studios.flightsapp.data.db.airport.entities.AirportEntity
@@ -58,8 +57,6 @@ class FlightScreenViewModel @Inject constructor(private val appUseCases: AppUseC
 
 	fun bookmarkFlight(airport: AirportEntity, destinationCode: String) {
 		val bookmarkedFlight = flightMapper.mapAirportToBookmarkedFlight(airport, destinationCode)
-
-		Log.d("BOOKMARKED", bookmarkedFlight.toString())
 
 		viewModelScope.launch {
 			appUseCases.bookmarkFlight(bookmarkedFlight)

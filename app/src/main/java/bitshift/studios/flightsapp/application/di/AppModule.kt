@@ -11,6 +11,7 @@ import bitshift.studios.flightsapp.domain.usecases.AppUseCases
 import bitshift.studios.flightsapp.domain.usecases.airports.GetAirportsMatching
 import bitshift.studios.flightsapp.domain.usecases.airports.GetFlightsFromAirport
 import bitshift.studios.flightsapp.domain.usecases.bookmarked.BookmarkFlight
+import bitshift.studios.flightsapp.domain.usecases.bookmarked.GetBookmarkedFlights
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,7 +31,6 @@ object AppModule {
 				AppDatabase.databaseName
 			)
 			.createFromAsset("database/flight_search.db")
-			.fallbackToDestructiveMigration()
 			.build()
 	}
 
@@ -55,7 +55,8 @@ object AppModule {
 		return AppUseCases(
 			GetAirportsMatching(airportDataRepository),
 			GetFlightsFromAirport(airportDataRepository),
-			BookmarkFlight(bookmarkedFlightsDataRepository)
+			BookmarkFlight(bookmarkedFlightsDataRepository),
+			GetBookmarkedFlights(bookmarkedFlightsDataRepository)
 		)
 	}
 }

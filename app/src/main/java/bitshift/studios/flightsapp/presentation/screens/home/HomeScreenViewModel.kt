@@ -29,6 +29,8 @@ class HomeScreenViewModel @Inject constructor(private val useCases: AppUseCases)
 	private val _homeScreenUIState = MutableStateFlow(HomeScreenUIState())
 	val uiState: StateFlow<HomeScreenUIState> = _homeScreenUIState.asStateFlow()
 
+	fun getBookmarkedFlights() = useCases.getBookmarkedFlights()
+
 	fun updateSearchQuery(newQuery: String) {
 		viewModelScope.launch {
 			_homeScreenUIState.update { state ->

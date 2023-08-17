@@ -5,6 +5,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import bitshift.studios.flightsapp.presentation.screens.home.components.BookmarkedFlightsList
 import bitshift.studios.flightsapp.presentation.ui.components.FlightSearch
 import bitshift.studios.flightsapp.presentation.ui.components.SearchBar
 import bitshift.studios.flightsapp.presentation.ui.theme.Main300
@@ -16,6 +17,7 @@ fun HomeScreen(
 	onAirportItemClicked: (String) -> Unit
 ) {
 	val uiState by viewModel.uiState.collectAsState()
+	val flights = viewModel.getBookmarkedFlights().collectAsState(initial = emptyList()).value
 	val isLoading = uiState.isLoading
 	val searchResults = uiState.searchResults
 	val isDarkTheme = isSystemInDarkTheme()
@@ -41,6 +43,8 @@ fun HomeScreen(
 					onAirportItemClicked(it)
 				}
 			)
+		} else {
+			BookmarkedFlightsList(flights = flights)
 		}
 	}
 }
