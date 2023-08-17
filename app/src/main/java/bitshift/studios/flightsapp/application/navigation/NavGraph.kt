@@ -6,10 +6,10 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import bitshift.studios.flightsapp.application.navigation.routes.Routes
-import bitshift.studios.flightsapp.presentation.screens.flights.FlightScreenViewModel
 import bitshift.studios.flightsapp.presentation.screens.flights.FlightsScreen
+import bitshift.studios.flightsapp.presentation.screens.flights.viewmodels.FlightScreenViewModel
 import bitshift.studios.flightsapp.presentation.screens.home.HomeScreen
-import bitshift.studios.flightsapp.presentation.screens.home.HomeScreenViewModel
+import bitshift.studios.flightsapp.presentation.screens.home.viewmodels.HomeScreenViewModel
 
 @Composable
 fun NavGraph(navHostController: NavHostController) {
@@ -21,6 +21,7 @@ fun NavGraph(navHostController: NavHostController) {
 			HomeScreen(
 				viewModel = viewModel,
 				onAirportItemClicked = { code ->
+					viewModel.clearSearchQuery()
 					navHostController.navigate(Routes.flights.plus("/$code"))
 				}
 			)
@@ -36,6 +37,9 @@ fun NavGraph(navHostController: NavHostController) {
 				viewModel = viewModel,
 				onBackButtonClicked = {
 					navHostController.popBackStack()
+				},
+				onBookmarkedFlight = {
+					navHostController.navigate(Routes.home)
 				}
 			)
 		}

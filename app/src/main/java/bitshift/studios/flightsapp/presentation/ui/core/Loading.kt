@@ -1,4 +1,4 @@
-package bitshift.studios.flightsapp.presentation.ui.components
+package bitshift.studios.flightsapp.presentation.ui.core
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

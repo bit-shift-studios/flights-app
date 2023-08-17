@@ -1,4 +1,4 @@
-package bitshift.studios.flightsapp.presentation.ui.components
+package bitshift.studios.flightsapp.presentation.screens.home.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -15,6 +15,8 @@ import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import bitshift.studios.flightsapp.R
 import bitshift.studios.flightsapp.data.db.airport.entities.AirportEntity
+import bitshift.studios.flightsapp.presentation.ui.core.Loading
+import bitshift.studios.flightsapp.presentation.ui.core.NoResults
 import bitshift.studios.flightsapp.presentation.ui.theme.Main050
 import bitshift.studios.flightsapp.presentation.ui.theme.Main300
 import bitshift.studios.flightsapp.presentation.ui.theme.Neutral050

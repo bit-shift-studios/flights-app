@@ -1,4 +1,4 @@
-package bitshift.studios.flightsapp.presentation.screens.flights
+package bitshift.studios.flightsapp.presentation.screens.flights.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -23,7 +23,9 @@ data class FlightScreenUIState(
 @HiltViewModel
 class FlightScreenViewModel @Inject constructor(private val appUseCases: AppUseCases) : ViewModel() {
 
-	private val _flightScreenUIState: MutableStateFlow<FlightScreenUIState> = MutableStateFlow(FlightScreenUIState())
+	private val _flightScreenUIState: MutableStateFlow<FlightScreenUIState> = MutableStateFlow(
+		FlightScreenUIState()
+	)
 	val flightScreenUIState: StateFlow<FlightScreenUIState> = _flightScreenUIState.asStateFlow()
 
 	private val flightMapper = AirportToBookmarkedFlightMapper

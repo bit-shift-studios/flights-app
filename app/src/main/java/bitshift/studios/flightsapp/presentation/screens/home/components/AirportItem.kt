@@ -1,4 +1,4 @@
-package bitshift.studios.flightsapp.presentation.ui.components
+package bitshift.studios.flightsapp.presentation.screens.home.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement

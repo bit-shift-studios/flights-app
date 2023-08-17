@@ -1,4 +1,4 @@
-package bitshift.studios.flightsapp.presentation.screens.home
+package bitshift.studios.flightsapp.presentation.screens.home.viewmodels
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
@@ -30,6 +30,12 @@ class HomeScreenViewModel @Inject constructor(private val useCases: AppUseCases)
 	val uiState: StateFlow<HomeScreenUIState> = _homeScreenUIState.asStateFlow()
 
 	fun getBookmarkedFlights() = useCases.getBookmarkedFlights()
+
+	fun clearSearchQuery() {
+		_homeScreenUIState.update { state ->
+			state.copy(searchQuery = "")
+		}
+	}
 
 	fun updateSearchQuery(newQuery: String) {
 		viewModelScope.launch {

@@ -6,16 +6,18 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import bitshift.studios.flightsapp.data.db.airport.entities.AirportEntity
-import bitshift.studios.flightsapp.presentation.ui.components.FlightDisplay
-import bitshift.studios.flightsapp.presentation.ui.components.FlightScreenAppBar
-import bitshift.studios.flightsapp.presentation.ui.components.Loading
+import bitshift.studios.flightsapp.presentation.screens.flights.components.FlightDisplay
+import bitshift.studios.flightsapp.presentation.screens.flights.components.FlightScreenAppBar
+import bitshift.studios.flightsapp.presentation.screens.flights.viewmodels.FlightScreenViewModel
+import bitshift.studios.flightsapp.presentation.ui.core.Loading
 import bitshift.studios.flightsapp.presentation.ui.theme.Main300
 import bitshift.studios.flightsapp.presentation.ui.theme.Neutral050
 
 @Composable
 fun FlightsScreen(
 	viewModel: FlightScreenViewModel,
-	onBackButtonClicked: () -> Unit
+	onBackButtonClicked: () -> Unit,
+	onBookmarkedFlight: () -> Unit
 ) {
 	val uiState = viewModel.flightScreenUIState.collectAsState().value
 	val isLoading = uiState.isLoading
@@ -42,6 +44,7 @@ fun FlightsScreen(
 				isDarkTheme = isDarkTheme,
 				bookmarkFlight = { airportEntity: AirportEntity ->
 					viewModel.bookmarkFlight(airportEntity, uiState.flightCode)
+					onBookmarkedFlight()
 				}
 			)
 		}

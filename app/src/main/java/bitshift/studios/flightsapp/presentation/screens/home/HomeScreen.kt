@@ -5,9 +5,10 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import bitshift.studios.flightsapp.presentation.screens.home.components.BookmarkedFlightsList
-import bitshift.studios.flightsapp.presentation.ui.components.FlightSearch
-import bitshift.studios.flightsapp.presentation.ui.components.SearchBar
+import bitshift.studios.flightsapp.presentation.screens.home.components.BookmarkedFlightDisplay
+import bitshift.studios.flightsapp.presentation.screens.home.components.FlightSearch
+import bitshift.studios.flightsapp.presentation.screens.home.viewmodels.HomeScreenViewModel
+import bitshift.studios.flightsapp.presentation.ui.core.SearchBar
 import bitshift.studios.flightsapp.presentation.ui.theme.Main300
 import bitshift.studios.flightsapp.presentation.ui.theme.Neutral050
 
@@ -44,7 +45,11 @@ fun HomeScreen(
 				}
 			)
 		} else {
-			BookmarkedFlightsList(flights = flights)
+			BookmarkedFlightDisplay(
+				padding = padding,
+				isDarkTheme = isDarkTheme,
+				flights = flights
+			)
 		}
 	}
 }
