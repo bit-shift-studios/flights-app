@@ -1,6 +1,5 @@
 > ## ⚠️  This project won't receive further updates ⚠️
-> I've learned quite a bit building this app and inadvertently made a few mistakes doing so.  
-> So, I've decided to rebuild it from the ground up with a refreshed UI and improved code, because they're things I could improve UX and code-wise that I couldn't on this one
+> While building this app, I've learned from inadvertent mistakes. Now, I'm rebuilding it with a fresh UI and improved code, addressing UX and code issues that were hard to tackle in the current version.
 ---
 
 ![Cover](https://github.com/bit-shift-studios/flights-app/assets/70282966/39f5275e-4b05-40dd-b751-6a883c7dd410)
