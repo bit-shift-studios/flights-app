@@ -3,7 +3,7 @@
 # Flights
 
 > **Warning**\
-**While building this app, I've learned from inadvertent mistakes. Now, I'm rebuilding it with a fresh UI and improved code, addressing UX and code issues that were hard to tackle in the current version.**
+**While building this app, I've learned from my mistakes. Now, I'm rebuilding it with a fresh UI and improved code, addressing UX and code issues that were hard to tackle in the current version.**
 
 A simple app that allows users to check flight arrival and departure destinations defined in a local database. This application aims to demonstrate working with SQL databases and preferences datastore along with other libraries when developing an actual Android application. The project description can be found at the [Google Android Developer tutorials](https://developer.android.com/codelabs/basic-android-kotlin-compose-flight-search).
 
